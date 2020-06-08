@@ -7,23 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550CDD3B248E3BED00C5687E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550CDD3A248E3BED00C5687E /* Card.swift */; };
+		55286A26248E6F6900006FE4 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55286A25248E6F6900006FE4 /* GridLayout.swift */; };
+		55286A28248E6FD700006FE4 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55286A27248E6FD600006FE4 /* GridView.swift */; };
+		554BB85A248BB2D2006754ED /* SquiggleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554BB859248BB2D2006754ED /* SquiggleLayout.swift */; };
+		554BB85F248BCB91006754ED /* SetSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554BB85E248BCB91006754ED /* SetSymbol.swift */; };
+		5552188E248E71AC0044E0F5 /* SoloSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552188D248E71AC0044E0F5 /* SoloSetView.swift */; };
+		55521890248E73D50044E0F5 /* TypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552188F248E73D50044E0F5 /* TypeExtensions.swift */; };
+		55521892248E84AE0044E0F5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55521891248E84AE0044E0F5 /* Game.swift */; };
+		55521894248E93620044E0F5 /* SoloSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55521893248E93620044E0F5 /* SoloSetViewModel.swift */; };
 		55707DE9248A51FE004706E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55707DE8248A51FE004706E5 /* AppDelegate.swift */; };
 		55707DEB248A51FF004706E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55707DEA248A51FF004706E5 /* SceneDelegate.swift */; };
-		55707DED248A51FF004706E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55707DEC248A51FF004706E5 /* ContentView.swift */; };
+		55707DED248A51FF004706E5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55707DEC248A51FF004706E5 /* CardView.swift */; };
 		55707DEF248A5202004706E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55707DEE248A5202004706E5 /* Assets.xcassets */; };
 		55707DF2248A5202004706E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55707DF1248A5202004706E5 /* Preview Assets.xcassets */; };
 		55707DF5248A5202004706E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55707DF3248A5202004706E5 /* LaunchScreen.storyboard */; };
+		55707E03248A601B004706E5 /* DiamondLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55707E02248A601B004706E5 /* DiamondLayout.swift */; };
+		5574BF55248A790000FDB901 /* OvalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5574BF54248A790000FDB901 /* OvalLayout.swift */; };
+		55AEB5EA248D2E8F00221AF6 /* StripedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEB5E9248D2E8F00221AF6 /* StripedLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		550CDD3A248E3BED00C5687E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		55286A25248E6F6900006FE4 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		55286A27248E6FD600006FE4 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		554BB859248BB2D2006754ED /* SquiggleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleLayout.swift; sourceTree = "<group>"; };
+		554BB85E248BCB91006754ED /* SetSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSymbol.swift; sourceTree = "<group>"; };
+		5552188D248E71AC0044E0F5 /* SoloSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloSetView.swift; sourceTree = "<group>"; };
+		5552188F248E73D50044E0F5 /* TypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeExtensions.swift; sourceTree = "<group>"; };
+		55521891248E84AE0044E0F5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		55521893248E93620044E0F5 /* SoloSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloSetViewModel.swift; sourceTree = "<group>"; };
 		55707DE5248A51FE004706E5 /* SoloSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoloSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55707DE8248A51FE004706E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55707DEA248A51FF004706E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55707DEC248A51FF004706E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		55707DEC248A51FF004706E5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		55707DEE248A5202004706E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55707DF1248A5202004706E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		55707DF4248A5202004706E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55707DF6248A5202004706E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55707E02248A601B004706E5 /* DiamondLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondLayout.swift; sourceTree = "<group>"; };
+		5574BF54248A790000FDB901 /* OvalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalLayout.swift; sourceTree = "<group>"; };
+		55AEB5E9248D2E8F00221AF6 /* StripedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripedLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		554BB85D248BCB50006754ED /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				554BB85E248BCB91006754ED /* SetSymbol.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		55707DDC248A51FE004706E5 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +121,7 @@
 			children = (
 				55707DEE248A5202004706E5 /* Assets.xcassets */,
 				55707DF3248A5202004706E5 /* LaunchScreen.storyboard */,
+				5552188F248E73D50044E0F5 /* TypeExtensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -96,6 +129,8 @@
 		55707DFE248A525E004706E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550CDD3A248E3BED00C5687E /* Card.swift */,
+				55521891248E84AE0044E0F5 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,7 +138,11 @@
 		55707DFF248A5275004706E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				55707DEC248A51FF004706E5 /* ContentView.swift */,
+				5552188D248E71AC0044E0F5 /* SoloSetView.swift */,
+				55707DEC248A51FF004706E5 /* CardView.swift */,
+				55286A27248E6FD600006FE4 /* GridView.swift */,
+				554BB85D248BCB50006754ED /* Modifiers */,
+				55707E01248A5FDD004706E5 /* Layouts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,8 +150,21 @@
 		55707E00248A527F004706E5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				55521893248E93620044E0F5 /* SoloSetViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55707E01248A5FDD004706E5 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				55707E02248A601B004706E5 /* DiamondLayout.swift */,
+				5574BF54248A790000FDB901 /* OvalLayout.swift */,
+				554BB859248BB2D2006754ED /* SquiggleLayout.swift */,
+				55AEB5E9248D2E8F00221AF6 /* StripedLayout.swift */,
+				55286A25248E6F6900006FE4 /* GridLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +238,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55707E03248A601B004706E5 /* DiamondLayout.swift in Sources */,
+				5552188E248E71AC0044E0F5 /* SoloSetView.swift in Sources */,
+				55521894248E93620044E0F5 /* SoloSetViewModel.swift in Sources */,
+				550CDD3B248E3BED00C5687E /* Card.swift in Sources */,
+				554BB85F248BCB91006754ED /* SetSymbol.swift in Sources */,
+				55286A28248E6FD700006FE4 /* GridView.swift in Sources */,
 				55707DE9248A51FE004706E5 /* AppDelegate.swift in Sources */,
+				55521890248E73D50044E0F5 /* TypeExtensions.swift in Sources */,
 				55707DEB248A51FF004706E5 /* SceneDelegate.swift in Sources */,
-				55707DED248A51FF004706E5 /* ContentView.swift in Sources */,
+				5574BF55248A790000FDB901 /* OvalLayout.swift in Sources */,
+				55521892248E84AE0044E0F5 /* Game.swift in Sources */,
+				554BB85A248BB2D2006754ED /* SquiggleLayout.swift in Sources */,
+				55286A26248E6F6900006FE4 /* GridLayout.swift in Sources */,
+				55707DED248A51FF004706E5 /* CardView.swift in Sources */,
+				55AEB5EA248D2E8F00221AF6 /* StripedLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +393,7 @@
 				DEVELOPMENT_TEAM = BDLVCX2K6B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SoloSet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,7 +401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.brass-bn.ulrich.SoloSet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -349,6 +414,7 @@
 				DEVELOPMENT_TEAM = BDLVCX2K6B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SoloSet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +422,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.brass-bn.ulrich.SoloSet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
