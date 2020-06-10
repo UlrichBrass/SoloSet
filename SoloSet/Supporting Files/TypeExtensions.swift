@@ -31,3 +31,16 @@ extension View{
         return self.modifier(SetSymbol (size : size, color: color))
     }
 }
+
+// Int extension used for random number generatiom from 0..<self
+extension Int {
+    var arc4random : Int {
+        get {
+            return (self > 0 ?
+                        Int(arc4random_uniform(UInt32(self))) :
+                        (self < 0 ?
+                            -Int(arc4random_uniform(UInt32(abs(self)))) :
+                            0))
+        }
+    }
+}

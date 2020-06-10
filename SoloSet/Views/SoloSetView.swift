@@ -17,16 +17,46 @@ struct SoloSetView: View {
             GridView(viewModel.cards){ card in     // The 'in' keyword indicates that the definition of the closure’s parameters and return type
                                                    // has finished, and the body of the closure is about to begin
                 CardView(card : card)
-                    .onTapGesture { // will call closure after recognizing a tap gesture.
-                    // Explicit animations are almost always wrapped around calls to ViewModel Intent functions
-                        withAnimation(.linear(duration : 0.75)){
-                             self.viewModel.chooseCard(card: card) // express intent
-                         }
-                        //print("Card chosen : " + card.id.uuidString)
-                    }//TapGesture
+                    .onTapGesture { // card was chosen
+                        withAnimation(.easeInOut(duration: 0.4)){
+                            self.viewModel.chooseCard(card: card) // express intent
+                        }
+                    }//TapGesture: choose a card
+                    .gesture(
+                        MagnificationGesture()
+                            .onEnded { _ in
+                                self.viewModel.cheat()
+                        }
+                    ) // Cheating ...
+                    .gesture(
+                        DragGesture(minimumDistance: 200)
+                            .onEnded { _ in
+                                // explicit animation for card redistribution effect
+                                withAnimation(.easeInOut(duration: 1.0)){
+                                    self.viewModel.newGame()
+                                }
+                        }
+                    ) // start new game
+                    .gesture(
+                        LongPressGesture(minimumDuration: 0.8)
+                            .onEnded { _ in
+                                withAnimation(.easeInOut(duration: 1.0)){
+                                    self.viewModel.addCards()
+                                }
+                        }
+                    ) // deal three new cards
+                    
             } // Grid
+            // The .onAppear modifier will excecuted, when the grid first appears
+            .onAppear {
+                withAnimation(.easeInOut(duration: 1.0)){
+                                self.viewModel.newGame()
+                }
+            }//Appear
             HStack {
                 Text ("Punkte: " + String(viewModel.gameScore))
+                Spacer()
+                Text(viewModel.message)
                 Spacer()
                 Text ("Sets: " + String(viewModel.noOfSetsFound))
             }

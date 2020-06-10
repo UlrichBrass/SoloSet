@@ -68,18 +68,18 @@ struct Game {
 // Methods
     // find a new set if any exists
     mutating func cheat () -> String?{
-        var cheatText = "No SET available"
+        var cheatText = "Kein SET 🙁"
         // If any card chosen, no cheating
         if chosenCards != nil || misMatchedCards != nil  || setCards != nil{
             return nil
         }
         for p in cards.combinationsWithoutRepetition(taking : 3) {
-            var permutation = p
+            let permutation = p
             if !permutation.setIsRemoved && permutation.areASet {
-                permutation.markAsSet()
+                permutation.markAsSet(in : &cards)
                 noOfSetsFound += 1
                 gameScore += Constants.scoreFined
-                cheatText = "You're cheating. You get fined!"
+                cheatText = "😎😎😎"
                 break
             }
         }
@@ -95,7 +95,7 @@ struct Game {
             // but only if the noOfCards is three (+3)
             if setFoundBefore.count == noOfCards {
                 // we want to remove the set now ...
-                setFoundBefore.unMark()
+                setFoundBefore.unMark(in : &cards)
                 // and replace with new cards, if any, or clear
                 replaceCards (for : setFoundBefore)
             }
@@ -130,42 +130,43 @@ struct Game {
             }
         } else {
             // not enough cards in deck, make set invisible instead
-            set.remove()
+            set.remove(in : &cards)
         }
     } // end replace cards
     
     mutating func choose(card : Card){
         let index = cards.firstIndex(matching: card)!
+        let currentCard = cards[index]
+        
         // toggle chosen status
-        var currentCard = cards[index]
         if currentCard.isChosen {
             // negative score for deselection
-            currentCard.isChosen = false
+            cards[index].isChosen = false
             gameScore += Constants.scoreDeselection
         } else {
             // chosing a card in a set oder mismatched triple again has no effect
             if !(currentCard.isPartOfSet || currentCard.isMisMatch) {
-                currentCard.isChosen = true
+                cards[index].isChosen = true
             }
         }
         
         // if nothing chosen we are done
         if cards[index].isChosen {
-            
+            // TO DO: make sure that card array value is changed , not a copy
             // Something is chosen, this could be a set
-            if  var candidates = chosenCards{
+            if  let candidates = chosenCards{
                 //check for a SET: three have to be chosen
                 if candidates.areATriplet {
                     // Now we can have a SET or a mismatch
                     if candidates.areASet {
                         // it was a set!!
-                        candidates.markAsSet()
+                        candidates.markAsSet(in : &cards)
                         // Here we need to score for a set!!
                         gameScore += Constants.scoreSet
                         noOfSetsFound += 1
                     } else {
                         // Now we mark it as a mismatch
-                        candidates.markAsMisMatch()
+                        candidates.markAsMisMatch(in : &cards)
                         // Here we need to score for a mismatch!!
                         gameScore += Constants.scoreMismatch
                     }
@@ -175,17 +176,17 @@ struct Game {
                  }   else if candidates.containOnlyOneCard{
                         if let setFoundBefore = setCards{
                             // we want to remove the set now ...
-                            setFoundBefore.unMark()
+                            setFoundBefore.unMark(in : &cards)
                             // and replace with new cards, if any, or clear
                             replaceCards (for : setFoundBefore)
                         } else if let misMatchedFoundBefore = misMatchedCards{
                             // we want to reset the mismatched cards (if any) now
-                            misMatchedFoundBefore.unMark()
+                            misMatchedFoundBefore.unMark(in : &cards)
                         }
                     }
                 } // else set empty
             } // else no card chosen
-    }// end choose card
+    }// end func choose card
     
     // Create card deck and shuffle
     init() {
@@ -295,39 +296,50 @@ private extension Array where Element == Card   {
                 :false)
         }
     }
-    // mark all 3 cards as belonging to a set and remove it from the candidate status
-    mutating func markAsSet (){
-        for c in self {
-            var card = c
-            card.isPartOfSet = true
-            card.isChosen = false
+    // self is an array of 3 candidate cards
+    // mark all 3 cards as belonging to a set in the original cards array passed as inout parameter
+    // and remove it from the candidate status
+    func markAsSet (in cards : inout [Element]){
+        for card in self {
+            if let index = cards.firstIndex(matching: card){
+                cards[index].isPartOfSet = true
+                cards[index].isChosen = false
+            }
         }
     }
-    // mark all 3 cards as being mismatched from the candidate status
-    func markAsMisMatch (){
-        for c in self {
-            var card = c
-            card.isMisMatch = true
-            card.isChosen = false
+    // self is an array of 3 candidate cards
+    // mark all 3 cards as being mismatched in the original cards array passed as inout parameter
+    // and remove it from the candidate status
+    func markAsMisMatch (in cards : inout [Element]){
+        for card in self {
+            if let index = cards.firstIndex(matching: card){
+                cards[index].isMisMatch = true
+                cards[index].isChosen = false
+            }
         }
     }
-    // unmark all 3 cards
-    func unMark(){
-        for c in self {
-            var card = c
-            card.isMisMatch = false
-            card.isChosen = false
-            card.isPartOfSet = false
+    // self is an array of 3 candidate cards
+    // unmark all 3 cards in the original cards array passed as inout parameter
+    func unMark(in cards : inout [Element]){
+        for card in self {
+            if let index = cards.firstIndex(matching: card){
+                cards[index].isMisMatch = false
+                cards[index].isChosen = false
+                cards[index].isPartOfSet = false
+            }
         }
     }
-    // mark cards as removed from game, because no new cards for replacement available
-    func remove() {
-        for c in self {
-            var card = c
-            card.isMisMatch = false
-            card.isChosen = false
-            card.isPartOfSet = false
-            card.isRemoved = true
+    // self is an array of candidate cards
+    // mark cards as removed from game in the original cards array passed as inout parameter,
+    // because no new cards for replacement available
+    func remove(in cards : inout [Element]) {
+        for card in self {
+            if let index = cards.firstIndex(matching: card){
+                cards[index].isMisMatch = false
+                cards[index].isChosen = false
+                cards[index].isPartOfSet = false
+                cards[index].isRemoved = true
+            }
         }
     }
     // Given an array of elements and how many of them we are taking, returns an array with

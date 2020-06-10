@@ -24,6 +24,8 @@
 		55707DF5248A5202004706E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55707DF3248A5202004706E5 /* LaunchScreen.storyboard */; };
 		55707E03248A601B004706E5 /* DiamondLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55707E02248A601B004706E5 /* DiamondLayout.swift */; };
 		5574BF55248A790000FDB901 /* OvalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5574BF54248A790000FDB901 /* OvalLayout.swift */; };
+		557EE9D62490E97A00D777E8 /* assignment-3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 557EE9D42490E97A00D777E8 /* assignment-3.pdf */; };
+		557EE9D72490E97A00D777E8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 557EE9D52490E97A00D777E8 /* README.md */; };
 		55AEB5EA248D2E8F00221AF6 /* StripedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AEB5E9248D2E8F00221AF6 /* StripedLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		55707DF6248A5202004706E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55707E02248A601B004706E5 /* DiamondLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondLayout.swift; sourceTree = "<group>"; };
 		5574BF54248A790000FDB901 /* OvalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalLayout.swift; sourceTree = "<group>"; };
+		557EE9D42490E97A00D777E8 /* assignment-3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "assignment-3.pdf"; sourceTree = "<group>"; };
+		557EE9D52490E97A00D777E8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		55AEB5E9248D2E8F00221AF6 /* StripedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripedLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +76,8 @@
 		55707DDC248A51FE004706E5 = {
 			isa = PBXGroup;
 			children = (
+				557EE9D42490E97A00D777E8 /* assignment-3.pdf */,
+				557EE9D52490E97A00D777E8 /* README.md */,
 				55707DE7248A51FE004706E5 /* SoloSet */,
 				55707DE6248A51FE004706E5 /* Products */,
 			);
@@ -226,6 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55707DF5248A5202004706E5 /* LaunchScreen.storyboard in Resources */,
+				557EE9D62490E97A00D777E8 /* assignment-3.pdf in Resources */,
+				557EE9D72490E97A00D777E8 /* README.md in Resources */,
 				55707DF2248A5202004706E5 /* Preview Assets.xcassets in Resources */,
 				55707DEF248A5202004706E5 /* Assets.xcassets in Resources */,
 			);

@@ -19,6 +19,7 @@ import Foundation
 final class SoloSetViewModel : ObservableObject{
     // published properties
     @Published  private(set) var gameModel : Game?  // the game
+    @Published  private(set) var message = ""
     
     private let noOfCardsAtStart : Int = 12
     
@@ -41,10 +42,23 @@ final class SoloSetViewModel : ObservableObject{
     // Interpret user inputs into actions upon business rules and data.
     func chooseCard(card chosenCard : Card) {
         gameModel!.choose(card: chosenCard)
+        message = ""
     }
     
-    init(){
+    func cheat(){
+        message = gameModel!.cheat() ?? ""
+    }
+    
+    func addCards(){
+        let additionalCards = 3
+        let receivedCards = gameModel!.dealCards(with : additionalCards)
+        message = "\(receivedCards) neue Karten"
+    }
+    
+    func newGame() {
         gameModel = Game()
+        message = "Neues Spiel"
         assert(gameModel!.dealCards(with : noOfCardsAtStart) == noOfCardsAtStart)
     }
+    
 } // class

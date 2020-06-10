@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CardView.swift
 //  SoloSet
 //
 //  Created by Ulrich Braß on 05.06.20.
@@ -14,11 +14,10 @@ struct CardView: View {
     private let radius : CGFloat = 10.0
     private let lineWidth : CGFloat = 3.0
     private let frameWidth : CGFloat = 1.0
-    private let cardColor = Color.white
     private let frameColor = Color.gray
    
     // mapping of color feature to displayable color
-    var colorToUIColor: [Card.Constants.colorFeature : Color]{
+    var colorFeatureToColor: [Card.Constants.colorFeature : Color]{
           get {
                return [
                      .red : Color.red,
@@ -34,26 +33,34 @@ struct CardView: View {
         GeometryReader{ geometry in
             self.body(for : geometry.size, of : self.card)
         } //Geometry Reader
+        // the .scale transition causes a view to be scaled to nothing when going out, .offset would make cards fly around
+            //.transition(AnyTransition.offset(CGSize(width:-400-(100.arc4random), height:-800-(200.arc4random))))
+            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .bottom)))
     } // Body
    
     //... and then bulding up frame and content
     private func body (for size : CGSize, of card : Card) -> some View {
         ZStack{
-            // The frame
-            RoundedRectangle(cornerRadius: radius).fill(cardColor)
-            RoundedRectangle(cornerRadius: radius).stroke(lineWidth: frameWidth)
-                .foregroundColor(frameColor)
+            // The frame and card background
+            Group {
+                RoundedRectangle(cornerRadius: radius)
+                    .fill(card.statusColor)
+                RoundedRectangle(cornerRadius: radius)
+                    .stroke(lineWidth: frameWidth)
+                    .foregroundColor(frameColor)
+            }
             
             // The symbols on the card
             VStack{
                 symbolSpacer(for : size)
                 ForEach(0..<card.cardFeatureNumber.value){ _ in
                     self.shape( of : card, with : self.lineWidth)
-                        .setSymbol(size : size, color : self.colorToUIColor[card.cardFeatureColor]!)
+                        .setSymbol(size : size, color : self.colorFeatureToColor[card.cardFeatureColor]!)
                      self.symbolSpacer(for : size)
                 }
             } // VStack
         }//ZStack
+       
     }
     // build the shape of a symbol, given its shading
     @ViewBuilder
@@ -102,5 +109,24 @@ struct ContentView_Previews: PreviewProvider {
                              color : Card.Constants.colorFeature.red))
             .padding()
             .aspectRatio(2/3, contentMode: .fit)
+    }
+}
+
+// Give a color to a card, to reflect a status
+extension Card {
+    var statusColor : Color {
+        let defaultColor = Color.white
+        let chosenColor = Color.gray
+        let setColor = Color.yellow
+        
+        var color = defaultColor
+        
+        if self.isPartOfSet && !self.isRemoved {
+            color = setColor
+        } else if self.isChosen || self.isMisMatch {
+            color = chosenColor
+        }
+        
+        return color
     }
 }
